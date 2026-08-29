@@ -1,0 +1,229 @@
+:root {
+  --bg: #1c1b22;
+  --card: #26242f;
+  --text: #f2f0f5;
+  --muted: #a39fb0;
+  --accent: #ff6b6b;
+  --accent-dark: #d94f4f;
+  --short: #4dabf7;
+  --long: #63e6be;
+  --border: #383544;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.app {
+  width: 100%;
+  max-width: 480px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+}
+
+.timer-card, .tasks-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.mode-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.mode-btn:hover { border-color: var(--accent); color: var(--text); }
+
+.mode-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.clock {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 12px 0 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s;
+}
+
+button:hover { transform: translateY(-1px); }
+button:active { transform: translateY(0); }
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  min-width: 110px;
+}
+
+button.primary:hover { background: var(--accent-dark); }
+
+.active-task {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.pomo-count {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.tasks-card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+#taskForm {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+#taskInput:focus { outline: 2px solid var(--accent); }
+
+#taskForm button {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+#taskList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.task-item.selected {
+  border-color: var(--accent);
+}
+
+.task-item.done .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-text {
+  flex: 1;
+  cursor: pointer;
+  word-break: break-word;
+}
+
+.task-pomos {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.task-item button {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+.task-select-btn {
+  background: transparent;
+}
+
+.task-select-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.task-delete-btn {
+  background: transparent;
+  color: var(--muted);
+}
+
+.task-delete-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  padding: 12px 0;
+  font-size: 0.9rem;
+}
+
+body.mode-short .clock { color: var(--short); }
+body.mode-long .clock { color: var(--long); }
+body.mode-focus .clock { color: var(--accent); }

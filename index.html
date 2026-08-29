@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro + Tareas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🍅 Pomodoro + Tareas</h1>
+    </header>
+
+    <main>
+      <section class="timer-card">
+        <div class="mode-tabs">
+          <button class="mode-btn active" data-mode="focus" data-minutes="25">Enfoque</button>
+          <button class="mode-btn" data-mode="short" data-minutes="5">Descanso corto</button>
+          <button class="mode-btn" data-mode="long" data-minutes="15">Descanso largo</button>
+        </div>
+
+        <div class="clock" id="clock">25:00</div>
+
+        <div class="controls">
+          <button id="startPause" class="primary">Iniciar</button>
+          <button id="reset">Reiniciar</button>
+        </div>
+
+        <div class="active-task" id="activeTaskLabel">Sin tarea activa</div>
+        <div class="pomo-count">Pomodoros completados hoy: <span id="pomoCount">0</span></div>
+      </section>
+
+      <section class="tasks-card">
+        <h2>Tareas</h2>
+        <form id="taskForm">
+          <input type="text" id="taskInput" placeholder="Añadir una tarea..." autocomplete="off" required />
+          <button type="submit">Añadir</button>
+        </form>
+        <ul id="taskList"></ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
